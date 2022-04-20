@@ -37,13 +37,10 @@ public class Employee extends Karyawan{
 	//Large Class-1_Data anak.
 	private List<Person> child;
 	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, Date dateJoined, boolean isForeigner, Kelamin gender) {
-		this.employeeId = employeeId;
-		this.Name = Name; //FirstName dan LastName digabung
-		this.idNumber = idNumber;
-		this.address = address;
+	public Employee(Karyawan employee, Person employee, Date dateJoined, Kelamin gender) {
+		this.employee = employee; //Long Parameter List.
 		this.dateJoined = dateJoined; //Primitive Obsession-2.
-		this.isForeigner = isForeigner;
+		this.isForeigner = false; //Long Parameter List-default.
 		this.gender = gender;
 		
 		childNames = new LinkedList<String>();
