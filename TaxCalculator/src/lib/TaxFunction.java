@@ -18,15 +18,9 @@ public class TaxFunction {
 	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
 		
 		int tax = 0;
-		
-		if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
-		}
-		
-		if (numberOfChildren > 3) {
-			numberOfChildren = 3;
-		}
-		
+
+		check(numberOfMonthWorking, numberOfChildren);
+		//Long method_Menghitung pajak.
 		if (isMarried) {
 			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
 		}else {
@@ -37,8 +31,17 @@ public class TaxFunction {
 			return 0;
 		}else {
 			return tax;
+		}		 
+	}
+	private static void check(int numberOfMonthWorking, int numberOfChildren){
+		//Long method_Mengecek data karyawan (durasi kerja dan jumlah anak).
+		if (numberOfMonthWorking > 12) {
+			System.err.println("More than 12 month working per year");
 		}
-			 
+		
+		if (numberOfChildren > 3) {
+			numberOfChildren = 3;
+		}
 	}
 	
 }
