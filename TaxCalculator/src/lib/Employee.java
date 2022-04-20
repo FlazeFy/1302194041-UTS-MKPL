@@ -53,21 +53,18 @@ public class Employee extends Karyawan{
 	private static final int grade3 = 7000000;
 
 	public void setMonthlySalary(int grade) {	
+		//Switch statement.
+		int bonus = 1;
+		if (isForeigner) {
+			bonus = 1.5;
+		}
+
 		if (grade == 1) {
-			monthlySalary = grade1;
-			if (isForeigner) {
-				monthlySalary = (int) (grade1 * 1.5);
-			}
+			monthlySalary = (int) (grade1 * bonus);
 		}else if (grade == 2) {
-			monthlySalary = grade2;
-			if (isForeigner) {
-				monthlySalary = (int) (grade2 * 1.5);
-			}
+			monthlySalary = (int) (grade2 * bonus);
 		}else if (grade == 3) {
-			monthlySalary = grade3;
-			if (isForeigner) {
-				monthlySalary = (int) (grade3 * 1.5);
-			}
+			monthlySalary = (int) (grade3 * bonus);
 		}
 	}
 	
