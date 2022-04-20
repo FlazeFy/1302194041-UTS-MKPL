@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Date;
 
-public class Employee {
+public class Employee extends Karyawan{
 
 	//Primitive Obsession-1.
 	private enum Kelamin {
@@ -14,11 +14,8 @@ public class Employee {
 		Perempuan
 	}
 
-	private String employeeId;
-	private String firstName;
-	private String lastName;
-	private String idNumber;
-	private String address;
+	//Large Class-1_Data karyawan.
+	private Person employee;
 	
 	//Primitive Obsession-2.
 	private Date dateJoined; //year, month, day.
@@ -34,16 +31,15 @@ public class Employee {
 	private int otherMonthlyIncome;
 	private int annualDeductible;
 	
-	private String spouseName;
-	private String spouseIdNumber;
+	//Large Class-1_Data pasangan.
+	private Person spouse;
 
-	private List<String> childNames;
-	private List<String> childIdNumbers;
+	//Large Class-1_Data anak.
+	private List<Person> child;
 	
 	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, Date dateJoined, boolean isForeigner, Kelamin gender) {
 		this.employeeId = employeeId;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.Name = Name; //FirstName dan LastName digabung
 		this.idNumber = idNumber;
 		this.address = address;
 		this.dateJoined = dateJoined; //Primitive Obsession-2.
@@ -84,16 +80,6 @@ public class Employee {
 	
 	public void setAdditionalIncome(int income) {	
 		this.otherMonthlyIncome = income;
-	}
-	
-	public void setSpouse(String spouseName, String spouseIdNumber) {
-		this.spouseName = spouseName;
-		this.spouseIdNumber = idNumber;
-	}
-	
-	public void addChild(String childName, String childIdNumber) {
-		childNames.add(childName);
-		childIdNumbers.add(childIdNumber);
 	}
 	
 	public int getAnnualIncomeTax() {
